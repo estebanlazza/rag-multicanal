@@ -88,8 +88,12 @@ que toque queries o schema se revisa contra esto.
     extract (PDF/txt/md vía Node) → chunk → embed → `chunks` estampando `tenant_id`, cap de
     ingesta (docs/páginas/tamaño) validado antes de embeber. Embeddings OpenAI; mock
     determinista si no hay `OPENAI_API_KEY` (solo dev). Validado unit + integración RLS.
-  - ⬜ **Fase 4 — RAG core `/api/query` + citas (E2)** (siguiente).
-  - ⬜ Fase 4.5 evals · panel features.
+  - ✅ **Fase 4 — RAG core `/api/query` + citas (completa).** Endpoint corriendo como
+    `app_ingress` (RLS-enforced, set_config app.tenant_id) — ADR-0002 real. HMAC n8n↔API,
+    resolución de tenant por cuenta, upsert contacto/conversación, retrieval (prefiltro
+    `WHERE tenant_id` + HNSW), prompt por tenant (default es-AR), OpenAI gpt-4o-mini (mock
+    sin key), logging con snapshot de chunks, citas (E2) en la respuesta. Validado e2e.
+  - ⬜ **Fase 4.5 — Evals (E3)** (siguiente) · panel features (editar prompts, ver convos).
 - Roadmap completo y reordenado en [docs/05-roadmap.md](docs/05-roadmap.md).
 - Trabajo diferido explícito en [TODOS.md](TODOS.md).
 
