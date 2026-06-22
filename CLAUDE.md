@@ -93,7 +93,10 @@ que toque queries o schema se revisa contra esto.
     resolución de tenant por cuenta, upsert contacto/conversación, retrieval (prefiltro
     `WHERE tenant_id` + HNSW), prompt por tenant (default es-AR), OpenAI gpt-4o-mini (mock
     sin key), logging con snapshot de chunks, citas (E2) en la respuesta. Validado e2e.
-  - ⬜ **Fase 4.5 — Evals (E3)** (siguiente) · panel features (editar prompts, ver convos).
+  - ✅ **Prompts por tenant.** Tabla `prompts` (1 por tenant), sembrada con el ejemplo
+    es-AR al crear el tenant, editable en `/panel/prompts` (RLS). `/api/query` usa el del
+    tenant, default solo como fallback.
+  - ⬜ **Fase 4.5 — Evals (E3)** (siguiente) · panel features restantes (ver conversaciones).
 - Roadmap completo y reordenado en [docs/05-roadmap.md](docs/05-roadmap.md).
 - Trabajo diferido explícito en [TODOS.md](TODOS.md).
 

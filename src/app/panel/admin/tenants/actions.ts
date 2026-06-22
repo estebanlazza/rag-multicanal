@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { getSessionContext } from "@/lib/auth";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { DEFAULT_SYSTEM_PROMPT } from "@/lib/rag/prompt";
 
 function back(params: Record<string, string>): never {
   const qs = new URLSearchParams(params).toString();
@@ -37,6 +38,11 @@ export async function createTenantAndInvite(formData: FormData) {
   if (tErr || !tenant) {
     back({ error: "No se pudo crear el tenant: " + (tErr?.message ?? "desconocido") });
   }
+
+  // Sembrar el prompt de ejemplo: el tenant arranca con algo razonable y editable.
+  await admin
+    .from("prompts")
+    .upsert({ tenant_id: tenant!.id, content: DEFAULT_SYSTEM_PROMPT }, { onConflict: "tenant_id" });
 
   // 2. Invitar al owner (crea el usuario y devuelve hashed_token).
   const origin = (await headers()).get("origin") ?? "http://localhost:3000";
