@@ -6,7 +6,14 @@ import { publicEnv } from "@/lib/env";
 
 type CookieToSet = { name: string; value: string; options: CookieOptions };
 
+// Rutas públicas: no se hace trabajo de auth (la landing queda estática, sin llamadas).
+const PUBLIC_PATHS = new Set(["/", "/privacidad"]);
+
 export async function updateSession(request: NextRequest) {
+  if (PUBLIC_PATHS.has(request.nextUrl.pathname)) {
+    return NextResponse.next({ request });
+  }
+
   let response = NextResponse.next({ request });
 
   const supabase = createServerClient(

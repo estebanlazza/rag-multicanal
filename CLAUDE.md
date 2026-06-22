@@ -110,8 +110,11 @@ que toque queries o schema se revisa contra esto.
     cap de tokens por respuesta. Chequeos ANTES de gastar el LLM; el runaway de un tenant
     no toca a los demás. Panel `/panel/usage`. (Borde Vercel Firewall/IP = config de Vercel,
     no código.) Validado e2e.
-  - ⬜ **Fase 7 — landing pública + tenant cero** (siguiente).
-  - ⬜ Fase 5 — n8n + canales (diferida).
+  - ✅ **Fase 7 — landing pública + tenant cero.** Landing estática (`/`) con CTA + QR a
+    WhatsApp (generado en build, sin llamadas vivas), `?text=` precargado (atribución
+    suave), nota de privacidad (`/privacidad`, Ley 25.326). Middleware salta auth en rutas
+    públicas. Tenant cero = se cablea por el panel (ver README). Validado render estático.
+  - ⬜ Fase 5 — n8n + canales (diferida; `/api/query` ya listo para recibirlos).
 - Roadmap completo y reordenado en [docs/05-roadmap.md](docs/05-roadmap.md).
 - Trabajo diferido explícito en [TODOS.md](TODOS.md).
 

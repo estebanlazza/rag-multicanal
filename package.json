@@ -21,11 +21,13 @@
     "@supabase/ssr": "^0.5.1",
     "openai": "^4.68.0",
     "postgres": "^3.4.4",
+    "qrcode": "^1.5.4",
     "unpdf": "^0.12.1"
   },
   "devDependencies": {
     "typescript": "^5.5.0",
     "@types/node": "^22.0.0",
+    "@types/qrcode": "^1.5.5",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "supabase": "^1.200.0"

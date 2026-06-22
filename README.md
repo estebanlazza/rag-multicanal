@@ -63,6 +63,19 @@ Viven en [supabase/migrations/](supabase/migrations/), versionadas:
 no puede ver datos de otro por ningún camino (ingress, panel, cruce explícito) y que el
 platform admin sí ve todo. `npm run db:test` los corre contra el Postgres local.
 
+## Tenant cero (dogfood)
+
+Tu propio demo es un tenant más del sistema. Para cablearlo:
+
+1. `npm run db:bootstrap` y entrá como platform admin.
+2. En `/panel/admin/tenants` creá un tenant para tu demo (ya queda con prompt de ejemplo).
+3. Subí tus documentos y ajustá el prompt desde el panel de ese tenant.
+4. Apuntá `NEXT_PUBLIC_DEMO_WHATSAPP` (en `.env.local`) a tu número de WhatsApp del demo →
+   el QR de la landing lleva ahí.
+5. Cuando exista n8n (Hito 2), conectás ese WhatsApp insertando una fila en
+   `connected_accounts` para ese tenant. A partir de ahí, la landing vende el producto y el
+   bot que la atiende es tu tenant cero.
+
 ## Deploy
 
 Next → Vercel (sin Docker). Supabase gestionado. Detalle en
