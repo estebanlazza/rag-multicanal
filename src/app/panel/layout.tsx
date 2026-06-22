@@ -24,6 +24,9 @@ export default async function PanelLayout({
         <Link href="/panel" style={{ fontWeight: 600, textDecoration: "none", color: "inherit" }}>
           RAG Chatbot
         </Link>
+        <Link href="/panel/conversations" style={{ fontSize: 14 }}>
+          Conversaciones
+        </Link>
         <Link href="/panel/documents" style={{ fontSize: 14 }}>
           Documentos
         </Link>

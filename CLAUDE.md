@@ -96,7 +96,9 @@ que toque queries o schema se revisa contra esto.
   - ✅ **Prompts por tenant.** Tabla `prompts` (1 por tenant), sembrada con el ejemplo
     es-AR al crear el tenant, editable en `/panel/prompts` (RLS). `/api/query` usa el del
     tenant, default solo como fallback.
-  - ⬜ **Fase 4.5 — Evals (E3)** (siguiente) · panel features restantes (ver conversaciones).
+  - ✅ **Panel: ver conversaciones.** `/panel/conversations` (lista por tenant) +
+    detalle con mensajes lead/bot y las citas/fuentes de cada respuesta. RLS-scoped.
+  - ⬜ **Fase 4.5 — Evals (E3)** (siguiente).
 - Roadmap completo y reordenado en [docs/05-roadmap.md](docs/05-roadmap.md).
 - Trabajo diferido explícito en [TODOS.md](TODOS.md).
 
