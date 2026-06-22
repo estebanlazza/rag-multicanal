@@ -1,0 +1,39 @@
+project_id = "rag-chatbot"
+
+# Puertos en rango propio (+1000 sobre el default) para coexistir con otros proyectos
+# Supabase locales (ej. heladify-api usa 5432x). No cambiar sin actualizar .env.local
+# y el script db:test.
+
+[api]
+enabled = true
+port = 55321
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 55322
+shadow_port = 55320
+major_version = 15
+
+[studio]
+enabled = true
+port = 55323
+
+# Desactivados para no chocar puertos con otros proyectos Supabase locales y porque no
+# hacen falta para migraciones + tests RLS. Reactivar si se necesita testing de mails
+# (inbucket) o el dashboard de logs (analytics).
+[inbucket]
+enabled = false
+
+[analytics]
+enabled = false
+
+[auth]
+enabled = true
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["http://localhost:3000"]
+
+[auth.email]
+enable_signup = true
+enable_confirmations = false
