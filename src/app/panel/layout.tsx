@@ -36,6 +36,9 @@ export default async function PanelLayout({
         <Link href="/panel/evals" style={{ fontSize: 14 }}>
           Evals
         </Link>
+        <Link href="/panel/usage" style={{ fontSize: 14 }}>
+          Uso
+        </Link>
         {ctx.isPlatformAdmin && (
           <Link href="/panel/admin/tenants" style={{ fontSize: 14 }}>
             Tenants

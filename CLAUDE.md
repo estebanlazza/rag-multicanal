@@ -103,7 +103,15 @@ que toque queries o schema se revisa contra esto.
     `/panel/evals` para gestionar casos y correrlos con un botón. Chequeos: retrieval
     hit@k, aserciones include/exclude, "debería deferir". Avisa si los embeddings son mock
     (no significativo sin `OPENAI_API_KEY`). Validado e2e.
-- **Hito 1 (Fundaciones + panel sin canal): COMPLETO.** Falta Hito 2 (canales/n8n).
+- **Hito 1 (Fundaciones + panel sin canal): COMPLETO.**
+- **Hito 2 (en curso):**
+  - ✅ **Fase 6 — costos y rate limiting (por tenant).** Cap de mensajes/hora por contacto
+    + circuit breaker de gasto diario (tabla `token_usage`, techo `daily_token_cap`) +
+    cap de tokens por respuesta. Chequeos ANTES de gastar el LLM; el runaway de un tenant
+    no toca a los demás. Panel `/panel/usage`. (Borde Vercel Firewall/IP = config de Vercel,
+    no código.) Validado e2e.
+  - ⬜ **Fase 7 — landing pública + tenant cero** (siguiente).
+  - ⬜ Fase 5 — n8n + canales (diferida).
 - Roadmap completo y reordenado en [docs/05-roadmap.md](docs/05-roadmap.md).
 - Trabajo diferido explícito en [TODOS.md](TODOS.md).
 
