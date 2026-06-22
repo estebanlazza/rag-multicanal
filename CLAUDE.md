@@ -98,7 +98,12 @@ que toque queries o schema se revisa contra esto.
     tenant, default solo como fallback.
   - ✅ **Panel: ver conversaciones.** `/panel/conversations` (lista por tenant) +
     detalle con mensajes lead/bot y las citas/fuentes de cada respuesta. RLS-scoped.
-  - ⬜ **Fase 4.5 — Evals (E3)** (siguiente).
+  - ✅ **Fase 4.5 — Evals (E3, completa).** Tabla `eval_cases` + `eval_results` por
+    tenant, función `match_chunks` unificada (la usa `/api/query` y el runner), pantalla
+    `/panel/evals` para gestionar casos y correrlos con un botón. Chequeos: retrieval
+    hit@k, aserciones include/exclude, "debería deferir". Avisa si los embeddings son mock
+    (no significativo sin `OPENAI_API_KEY`). Validado e2e.
+- **Hito 1 (Fundaciones + panel sin canal): COMPLETO.** Falta Hito 2 (canales/n8n).
 - Roadmap completo y reordenado en [docs/05-roadmap.md](docs/05-roadmap.md).
 - Trabajo diferido explícito en [TODOS.md](TODOS.md).
 

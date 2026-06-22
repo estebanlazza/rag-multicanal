@@ -84,14 +84,10 @@ export async function POST(request: NextRequest) {
         insert into messages (tenant_id, conversation_id, role, content)
         values (${tenantId}, ${conv.id}, 'user', ${text})`;
 
-      // retrieval: prefiltro WHERE tenant_id (frontera) + HNSW por similaridad coseno
+      // retrieval: match_chunks (prefiltro por tenant + HNSW coseno), compartido con evals
       const chunks = await tx`
-        select id, document_id, content,
-               1 - (embedding <=> ${queryVec}::vector) as similarity
-        from chunks
-        where tenant_id = ${tenantId} and embedding is not null
-        order by embedding <=> ${queryVec}::vector
-        limit ${TOP_K}`;
+        select id, document_id, content, similarity
+        from match_chunks(${tenantId}, ${queryVec}::vector, ${TOP_K})`;
 
       // prompt del tenant (o default)
       const [promptRow] = await tx`

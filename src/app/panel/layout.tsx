@@ -33,6 +33,9 @@ export default async function PanelLayout({
         <Link href="/panel/prompts" style={{ fontSize: 14 }}>
           Prompt
         </Link>
+        <Link href="/panel/evals" style={{ fontSize: 14 }}>
+          Evals
+        </Link>
         {ctx.isPlatformAdmin && (
           <Link href="/panel/admin/tenants" style={{ fontSize: 14 }}>
             Tenants
