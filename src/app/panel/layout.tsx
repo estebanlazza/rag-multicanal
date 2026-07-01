@@ -22,7 +22,7 @@ export default async function PanelLayout({
         }}
       >
         <Link href="/panel" style={{ fontWeight: 600, textDecoration: "none", color: "inherit" }}>
-          RAG Chatbot
+          Ragent
         </Link>
         <Link href="/panel/conversations" style={{ fontSize: 14 }}>
           Conversaciones

@@ -1,4 +1,4 @@
-# RAG Chatbot — bot conversacional multi-tenant
+# Ragent — bot conversacional multi-tenant (RAG por WhatsApp)
 
 Bot con IA que responde por WhatsApp (e IG/Messenger) usando la base de conocimiento de
 cada negocio (RAG). Plataforma multi-tenant: muchos negocios, datos aislados por tenant.

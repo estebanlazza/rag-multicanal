@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Política de privacidad — RAG Chatbot",
+  title: "Política de privacidad",
 };
 
 export default function Privacidad() {
